@@ -26,3 +26,18 @@ if build_histogram:
     # Mostrar el gráfico Plotly interactivo en la aplicación Streamlit
     # 'use_container_width=True' ajusta el ancho del gráfico al contenedor
     st.plotly_chart(fig, use_container_width=True)
+
+# Gráfico de dispersión
+build_scatter = st.checkbox('Construir gráfico de dispersión')
+
+if build_scatter:
+    st.write('Relación entre precio y odómetro')
+    
+    fig = px.scatter(
+        car_data,
+        x='odometer',
+        y='price',
+        title='Precio vs Odómetro'
+    )
+    
+    st.plotly_chart(fig, use_container_width=True)
